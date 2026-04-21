@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Практична робота №7</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Практична робота №7</h1>
+    <p class="muted">
+      Система управління студентами
+    </p>
+
+    <div class="card">
+      <h2>Додати / редагувати студента</h2>
+      <div class="grid">
+        <div>
+          <label for="name">Ім'я</label>
+          <input type="text" id="name" placeholder="Наприклад: Іван" />
+        </div>
+        <div>
+          <label for="age">Вік</label>
+          <input type="number" id="age" placeholder="18" />
+        </div>
+        <div>
+          <label for="gpa">GPA (0-100)</label>
+          <input type="number" id="gpa" placeholder="85" />
+        </div>
+        <div>
+          <label for="faculty">Факультет</label>
+          <input type="text" id="faculty" placeholder="ІПЗ" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button onclick="saveStudent()">Зберегти студента</button>
+        <button class="btn-secondary" onclick="resetForm()">Очистити форму</button>
+      </div>
+      <div id="formMessage" class="small"></div>
+    </div>
+
+    <div class="card">
+      <h2>Фільтрація та сортування</h2>
+      <div class="grid">
+        <div>
+          <label for="filterFaculty">Фільтр за факультетом</label>
+          <select id="filterFaculty">
+            <option value="">Усі факультети</option>
+          </select>
+        </div>
+        <div>
+          <label for="minGpa">Мінімальний GPA</label>
+          <input type="number" id="minGpa" placeholder="0" min="0" max="100" />
+        </div>
+        <div>
+          <label for="sortField">Сортувати за</label>
+          <select id="sortField">
+            <option value="gpa">GPA</option>
+            <option value="name">Ім'я</option>
+            <option value="age">Вік</option>
+          </select>
+        </div>
+        <div>
+          <label for="sortOrder">Порядок</label>
+          <select id="sortOrder">
+            <option value="asc">ASC</option>
+            <option value="desc">DESC</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button onclick="applyFiltersAndSort()">Застосувати</button>
+        <button class="btn-secondary" onclick="resetFilters()">Скинути фільтри</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Список студентів</h2>
+      <div id="studentsTable"></div>
+    </div>
+
+    <div class="card">
+      <h2>Статистика</h2>
+      <div id="statsBlock" class="grid"></div>
+    </div>
+
+    <div class="card">
+      <h2>Алгоритми сортування</h2>
+      <p class="small">
+        Реалізація Bubble Sort та Quick Sort без використання <code>Array.sort()</code>.
+      </p>
+
+      <div class="row-inline">
+        <div>
+          <label for="customArray">Масив чисел через кому</label>
+          <input type="text" id="customArray" placeholder="8, 3, 1, 9, 2, 7" />
+        </div>
+        <div>
+          <label for="algoOrder">Порядок сортування</label>
+          <select id="algoOrder">
+            <option value="asc">ASC</option>
+            <option value="desc">DESC</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button onclick="runCustomSorts()">Запустити сортування</button>
+        <button class="btn-secondary" onclick="runBenchmark()">Порівняти на 100 / 1000 / 5000</button>
+      </div>
+
+      <div id="sortResults" class="result-box">Тут буде результат сортування...</div>
+      <div id="benchmarkResults" class="result-box">Тут буде результат порівняння...</div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
